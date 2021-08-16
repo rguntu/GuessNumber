@@ -2,8 +2,8 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View,TextInput, Button} from 'react-native';
 import Header from './components/Header'
-import StartGame from './screens/StartGameScreen'
-import GameScreen from './screens/GameScreen'
+import StartGame from './screens/StartGame'
+import PlayGame from './screens/PlayGame'
 import GameOver from './screens/GameOver';
 export default function App() {
 
@@ -23,7 +23,7 @@ export default function App() {
   }
   let content  = <StartGame onStartGame={startGameHandler}/>
   if(enteredValue && gameRounds <=0) {
-    content  = <GameScreen userInput={enteredValue} gameOverHandler={gameOverHandler}  />
+    content  = <PlayGame userInput={enteredValue} gameOverHandler={gameOverHandler}  />
   } else if(gameRounds > 0) {
     content  = <GameOver newGame={newGame}/>
   }
